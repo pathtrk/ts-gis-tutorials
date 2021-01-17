@@ -1,34 +1,18 @@
-import EsriMap from "esri/Map";
-import MapView from "esri/views/MapView";
-import BasemapToggle from "esri/widgets/BasemapToggle";
-import BasemapGallery from "esri/widgets/BasemapGallery";
+import BasemapSelect from "./BaesmapSelect";
 
-const map = new EsriMap({
-  basemap: "streets-vector"
-});
+const listEl = document.querySelector('#list ul');
 
-const view = new MapView({
-  map: map,
-  container: "viewDiv",
-  center: [-118.244, 34.052],
-  zoom: 12
-});
+class Tutorial {
+  private listEl = listEl;
+  constructor(readonly title: string, readonly displayFn: ()=> void) {}
 
-const basemapToggle = new BasemapToggle({
-    view: view,
-    nextBasemap: "satellite"
-})
+  show() {
+    const li = document.createElement('li')
+    li.textContent = this.title;
+    li.onclick = this.displayFn;
+    this.listEl?.appendChild(li);
+  }
+}
 
-view.ui.add(basemapToggle, "bottom-right");
-
-const basemapGallery = new BasemapGallery({
-    view: view,
-    source: {
-        portal: {
-            url: "https://www.arcgis.com",
-            useVectorBasemaps: true // Load vector tile basemaps
-        }
-    }
-})
-
-view.ui.add(basemapGallery, "top-right");
+const basemapSelect = new Tutorial('Select a Basemap', BasemapSelect);
+basemapSelect.show();
