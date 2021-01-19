@@ -1,18 +1,14 @@
 import BasemapSelect from "./BaesmapSelect";
+import AddLayers2D from "./Layers2D";
 
 const listEl = document.querySelector('#list ul');
 
-class Tutorial {
-  private listEl = listEl;
-  constructor(readonly title: string, readonly displayFn: ()=> void) {}
+const setTutorial = (title: string, displayFn: ()=> void) => {
+  const li = document.createElement('li')
+  li.textContent = title;
+  li.onclick = displayFn;
+  listEl?.appendChild(li);
+};
 
-  show() {
-    const li = document.createElement('li')
-    li.textContent = this.title;
-    li.onclick = this.displayFn;
-    this.listEl?.appendChild(li);
-  }
-}
-
-const basemapSelect = new Tutorial('Select a Basemap', BasemapSelect);
-basemapSelect.show();
+setTutorial('Select a Basemap', BasemapSelect);
+setTutorial('Add Layers to the 2D map', AddLayers2D);
