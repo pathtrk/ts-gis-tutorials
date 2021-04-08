@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <title>ArcGIS JSAPI 4.18 TypeScript Demo</title>
-    <style>
-      html, body, #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-      #list {
-        font-family: 'IBM Plex Sans', sans-serif;
-        width: 19.5rem;
-        margin-top: 0;
-      }
-      #list ul {
-        padding-left: 2.2rem;
-      }
-      #list ul li {
-        font-size: 0.95rem;
-        cursor: pointer;
-        text-decoration: underline;
-        color: lightslategray;
-      }
-      #list ul li:hover, #list ul li:focus {
-        color: darkslateblue;
-      }
-      body { 
-        display: flex;
-      }
-      h1 {
-        width: 85%;
-        font-size: 1.4rem;
-        margin: 3.15rem 1.1rem 1.45rem;
-        color: slategray;
-      }
-    </style>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
-    <script>
-      var locationPath = location.pathname.replace(/\/[^/]+$/, "");
-      window.dojoConfig = {
-        packages: [
-          {
-            name: "build",
-            location: locationPath + "/build"
-          }
-        ]
-      };
-    </script>
-    <script src="https://js.arcgis.com/4.18"></script>
-  </head>
-  <body>
-    <div id="list">
-      <h1>TS Geolocation Tutorials</h1>
-      <ul></ul>
-    </div>
-    <div id="viewDiv"></div>
-    <script type="module">require(["build/main"]);</script>
-  </body>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <title>ArcGIS JSAPI 4.18 App</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #list {
+      font-family: 'IBM Plex Sans', sans-serif;
+      width: 19.5rem;
+      margin-top: 0;
+    }
+
+    #list ul {
+      padding-left: 2.2rem;
+    }
+
+    #list ul li {
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: underline;
+      color: lightslategray;
+    }
+
+    #list ul li:hover,
+    #list ul li:focus {
+      color: darkslateblue;
+    }
+
+    body {
+      display: flex;
+    }
+
+    h1 {
+      width: 85%;
+      font-size: 1.4rem;
+      margin: 3.15rem 1.1rem 1.45rem;
+      color: slategray;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+  <script>
+    var locationPath = location.pathname.replace(/\/[^/]+$/, "");
+    window.dojoConfig = {
+      packages: [
+        {
+          name: "build",
+          location: locationPath + "build"
+        }
+      ]
+    };
+  </script>
+  <script src="https://js.arcgis.com/4.18"></script>
+</head>
+
+<body>
+  <div id="list">
+    <h1>TypeScript Geolocation App</h1>
+    <ul></ul>
+  </div>
+  <div id="viewDiv"></div>
+  <script type="module">require(["build/main"]);</script>
+</body>
+
 </html>
